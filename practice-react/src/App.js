@@ -1,24 +1,27 @@
 import React, { useState } from "react";
 
 function App() {
-  const [numbers, setNumbers] = useState([]);
+  const [count, setCounter] = useState(0);
 
-  function handleButtonClick() {
-    const newNumbers = [];
-    for (let i = 1; i <= 6; i++) {
-      newNumbers.push[i];
+  function numberIcreament() {
+    if (count >= 10) {
+      return;
     }
-    setNumbers(newNumbers);
+    return setCounter(count + 1);
   }
+
+  const numberDecreament = () => {
+    if (count <= 0) {
+      return;
+    }
+    return setCounter(count - 1);
+  };
 
   return (
     <div className="App">
-      <button onClick={handleButtonClick}>Display Numbers</button>
-      <div>
-        {numbers.map((number) => (
-          <span key={number}>{number} </span>
-        ))}
-      </div>
+      <button onClick={numberIcreament}>Increase</button>
+      <span>{count}</span>
+      <button onClick={numberDecreament}>Decrease</button>
     </div>
   );
 }
